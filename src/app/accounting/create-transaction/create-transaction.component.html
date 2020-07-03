@@ -1,0 +1,84 @@
+<div class="container">
+
+  <mat-card>
+
+    <form [formGroup]="transactionForm" (ngSubmit)="submit()">
+
+      <mat-card-content>
+
+        <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
+
+          <mat-form-field fxFlex="48%">
+            <mat-label>Payer Identifier Type</mat-label>
+            <mat-select required formControlName="payerIdentifierType">
+              <mat-option *ngFor="let identityType of identityTypeData" [value]="identityType">
+                {{ identityType }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="transactionForm.controls.payerIdentifierType.hasError('required')">
+              Payer Identifier Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="48%">
+            <mat-label>Payer Identifier</mat-label>
+            <input matInput formControlName="payerIdentifier">
+            <mat-error *ngIf="transactionForm.controls.payerIdentifier.hasError('required')">
+              Payer Identifier is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="48%">
+            <mat-label>Payee Identifier Type</mat-label>
+            <mat-select required formControlName="payeeIdentifierType">
+              <mat-option *ngFor="let identityType of identityTypeData" [value]="identityType">
+                {{ identityType }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="transactionForm.controls.payeeIdentifierType.hasError('required')">
+              Payee Identifier Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="48%">
+            <mat-label>Payee Identifier</mat-label>
+            <input matInput formControlName="payeeIdentifier">
+            <mat-error *ngIf="transactionForm.controls.payeeIdentifier.hasError('required')">
+              Payee Identifier is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="48%">
+            <mat-label>Amount</mat-label>
+            <input matInput formControlName="amount">
+            <mat-error *ngIf="transactionForm.controls.amount.hasError('required')">
+              Amount is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="48%">
+            <mat-label>Currency</mat-label>
+            <mat-select required formControlName="currency">
+              <mat-option *ngFor="let curr of currencyData" [value]="curr">
+                {{ curr }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="transactionForm.controls.currency.hasError('required')">
+              Currency is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+
+      </mat-card-content>
+
+      <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px">
+        <button type="button" mat-raised-button [routerLink]="['../']">Cancel</button>
+        <button mat-raised-button color="primary" [disabled]="!transactionForm.valid">Submit</button>
+      </mat-card-actions>
+
+    </form>
+
+  </mat-card>
+
+</div>

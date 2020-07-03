@@ -38,6 +38,7 @@ import { ProvisioningEntriesComponent } from './provisioning-entries/provisionin
 import { CreateProvisioningEntryComponent } from './provisioning-entries/create-provisioning-entry/create-provisioning-entry.component';
 import { ViewProvisioningEntryComponent } from './provisioning-entries/view-provisioning-entry/view-provisioning-entry.component';
 import { ViewProvisioningJournalEntriesComponent } from './provisioning-entries/view-provisioning-journal-entries/view-provisioning-journal-entries.component';
+import { CreateTransactionComponent } from './create-transaction/create-transaction.component';
 
 /** Custom Resolvers */
 import { OfficesResolver } from './common-resolvers/offices.resolver';
@@ -75,6 +76,19 @@ const routes: Routes = [
         {
           path: '',
           component: AccountingComponent
+        },
+        {
+          path: 'transaction',
+          data: { title: extract('Create GSMA Transaction'), breadcrumb: 'Create Transaction' },
+          children: [
+            {
+              path: 'create',
+              component: CreateTransactionComponent,
+              resolve: {
+
+              }
+            }
+          ]
         },
         {
           path: 'journal-entries',
