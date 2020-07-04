@@ -22,7 +22,7 @@
 
           <mat-form-field fxFlex="48%">
             <mat-label>Payer Identifier</mat-label>
-            <input matInput formControlName="payerIdentifier">
+            <input matInput required formControlName="payerIdentifier">
             <mat-error *ngIf="transactionForm.controls.payerIdentifier.hasError('required')">
               Payer Identifier is <strong>required</strong>
             </mat-error>
@@ -42,7 +42,7 @@
 
           <mat-form-field fxFlex="48%">
             <mat-label>Payee Identifier</mat-label>
-            <input matInput formControlName="payeeIdentifier">
+            <input matInput required formControlName="payeeIdentifier">
             <mat-error *ngIf="transactionForm.controls.payeeIdentifier.hasError('required')">
               Payee Identifier is <strong>required</strong>
             </mat-error>
@@ -50,7 +50,7 @@
 
           <mat-form-field fxFlex="48%">
             <mat-label>Amount</mat-label>
-            <input matInput formControlName="amount">
+            <input matInput required formControlName="amount">
             <mat-error *ngIf="transactionForm.controls.amount.hasError('required')">
               Amount is <strong>required</strong>
             </mat-error>
